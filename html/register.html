@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Health Monitoring - Register</title>
+		<link rel="stylesheet" href="stylesheets/site.css">
+		<link rel="stylesheet" href="stylesheets/login.css">
+		
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+			
+		<script src="https://code.jquery.com/jquery-2.2.0.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" crossorigin="anonymous"></script>
+		
+		<script src="../javascripts/utils.js"></script>
+		<script src="../javascripts/register.js"></script>
+	</head>
+	<body class="page">
+		<header>
+			<nav class="navbar navbar-default">
+			  <div class="container-fluid">
+			    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+			      	<ul class="nav navbar-nav">
+			        	<li>
+			        		<a href="/">Homepage<span class="sr-only">(current)</span></a>
+			        	</li>
+			        </ul>
+			        <ul class="nav navbar-nav navbar-right">
+				        <li>
+				        	<a href="/login">Login</a>
+				        </li>
+				        <li class="active">
+				        	<a href="/register">Register</a>
+				        </li>
+			      	</ul>
+			    </div><!-- /.navbar-collapse -->
+			  </div><!-- /.container-fluid -->
+			</nav>
+		</header>
+		<div style="margin: 5px 10px 5px 10px;">
+			<span style="float: right; margin-left: 5px; padding-top: 2px;" class="glyphicon glyphicon-question-sign"></span>
+			<a style="float: right;" target="_blank" href="/help#page=4">Help</a>
+			<div style="clear: both;"></div>
+		</div>
+		<div id="Register" class="container">
+			<form method="POST" action="register" class="form-register">
+				<h2 class="form-register-heading" align="center">Register</h2>
+				<div class="messages">
+					<span id="RegisterFail" style="display: none;">Registration failed. Please try again.</span>
+					<span id="PasswordMismatch" style="display: none;">Passwords did not match. Please try again.</span>
+					<span id="UserExists" style="display: none;">Requested Username already exists.</span>
+				</div>
+				<br>
+				<label for="inputUser" class="sr-only">Username</label>
+				<input name="username" type="text" id="inputUser" class="form-control" placeholder="Username" required autofocus>
+				<br>
+				<label for="inputPassword" class="sr-only">Password</label>
+				<input name="password" type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+				<label for="confirmPassword" class="sr-only">Confirm Password</label>
+				<br>
+				<input name="confirmPassword" type="password" id="confirmPassword" class="form-control" placeholder="Confirm Password" required>
+				<br>
+				<button id="Register" class="btn btn-lg col-sm-6 btn-primary" type="submit">Register</button>
+				<a id="Return" href="login">
+					<button class="btn btn-lg col-sm-6 btn-success" type="button">Back</button>
+				</a>
+			</form>
+		</div>
+	</body>
+</html>

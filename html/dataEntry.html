@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+	<html>
+		<head>
+			<title>Data Entry</title>
+			<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+			<link rel="stylesheet" href="../stylesheets/site.css">
+			<link rel="stylesheet" href="../stylesheets/dataEntry.css">
+			
+			<script src="https://code.jquery.com/jquery-2.2.0.js"></script>
+			<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" crossorigin="anonymous"></script>	
+			
+			<script src="../javascripts/base.js"></script>
+			<script src="../javascripts/utils.js"></script>
+			<script src="../javascripts/dataEntry.js"></script>
+		</head>
+		<body>
+			<header>
+				<nav class="navbar navbar-default">
+				  <div class="container-fluid">
+				    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+				      	<ul class="nav navbar-nav">
+				        	<li>
+				        		<a href="/">Homepage<span class="sr-only">(current)</span></a>
+				        	</li>
+				        </ul>
+				        <ul class="nav navbar-nav navbar-right">
+					        <li class="active">
+					        	<a href="/activities/create">Activity Create</a>
+					        </li>
+					        <li>
+					        	<a href="/activities/view">Activity View</a>
+					        </li>
+					        <li>
+					        	<a href="/logout">Log out</a>
+					        </li>
+				      	</ul>
+				    </div><!-- /.navbar-collapse -->
+				  </div><!-- /.container-fluid -->
+				</nav>
+			</header>
+			<div style="margin: 5px 10px 5px 10px;">
+				<span style="float: right; margin-left: 5px; padding-top: 2px;" class="glyphicon glyphicon-question-sign"></span>
+				<a style="float: right;" target="_blank" href="/help#page=6">Help</a>
+				<div style="clear: both;"></div>
+			</div>
+			<div id="DataEntry" class="container">
+				<form id="activityForm" class="form-centered" method="POST" action="javascript:createActivity();">
+					<h2 class="form-signin-heading" align="center">Data Entry</h2>
+					<div class="messages">
+						<div id="AlreadyExists" class="alert alert-danger" role="alert">
+							<span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+							An activity already exists for this date! Try again with a different date.
+						</div>
+						<div id="CreationSuccess" class="alert alert-success" role="alert">
+							<span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+							The day's activity was created successfully!
+						</div>
+						<div id="InvalidDate" class="alert alert-danger" role="alert">
+							<span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+							Activities cannot be created for future dates.
+						</div>
+						<div id="CreationFail" class="alert alert-danger" role="alert">
+							<span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+							The activity could not be created. Try again in a little while.
+						</div>
+					</div>
+
+					<label for="inputDate" >Date</label>
+					<input type="date" required id="inputDate" class="form-control" required autofocus>
+					<br>
+					<label for="inputMin">Minimum Heart Rate</label>
+					<input type="number" required id="inputMin" min="30" max="215" class="form-control" placeholder="Enter Minimum Heart Rate" required>
+					<br>
+					<label for="inputMax">Maximum Heart Rate</label>
+					<input type="number" required id="inputMax" min="30" max="215" class="form-control" placeholder="Enter Maximum Heart Rate" required>
+					<br>
+					<label for="inputAvg">Average Heart Rate</label>
+					<input type="number" required id="inputAvg" min="30" max="215" class="form-control" placeholder="Enter Average Heart Rate" required>
+					<br>
+					<label for="inputSteps">Steps</label>
+					<input type="number" required id="inputSteps" min="0" max="100000" class="form-control" placeholder="Enter Steps" required>
+					<br>
+					<button id="Save" class="btn btn-lg btn-primary btn-block" type="submit">Save</button>
+				</form>
+			</div>
+		</body>
+	</html>

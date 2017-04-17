@@ -1,0 +1,70 @@
+#Login .form-signin,
+#Register .form-register {
+	max-width: 330px;
+	padding: 15px;
+	margin: 0 auto;
+	border: 2px solid gray;
+	border-radius: 10px;
+	background-color: White;
+}
+
+#Login .form-signin .form-signin-heading,
+#Register .form-register .form-register-heading {
+	margin-top: 0;
+	margin-bottom: 10px;
+}
+
+#Login .form-signin .form-control,
+#Register .form-register .form-control {
+	position: relative;
+	height: auto;
+	box-sizing: border-box;
+	padding: 10px;
+	font-size: 16px;
+}
+
+#Login .form-signin div.messages,
+#Register .form-register div.messages {
+	text-align: center;
+}
+
+#Login .form-signin input[type="text"],
+#Register .form-register input[type="text"] {
+	margin-bottom: -1px;
+	border-bottom-right-radius: 0;
+	border-bottom-left-radius: 0;
+}
+
+#Login .form-signin #LoginFail,
+#Login .form-signin #NewUser,
+#Register .form-register #RegisterFail,
+#Register .form-register #UserExists,
+#Register .form-register #PasswordMismatch {
+	display: inline-block;
+	margin-bottom: 5px;
+	color: #FFAD49;
+	font-size: 13px;
+}
+
+#Login .form-signin input[type="password"],
+#Register .form-register input[type="password"] {
+	margin-bottom: 10px;
+	border-top-left-radius: 0;
+	border-top-right-radius: 0;
+}
+
+#Login .form-signin #SignIn,
+#Register .form-register #Register {
+	width: 174px;
+	margin-right: 20px;
+}
+
+#Login .form-signin #Register,
+#Register .form-register #Return {
+	display: inline-block;
+}
+
+#Login .form-signin #Register > button,
+#Register .form-register #Return > button {
+	width: 100px;
+}

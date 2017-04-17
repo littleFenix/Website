@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Health Monitoring - Login</title>
+		<link rel="stylesheet" href="stylesheets/site.css">
+		<link rel="stylesheet" href="stylesheets/login.css">
+
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+		
+		<script src="https://code.jquery.com/jquery-2.2.0.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" crossorigin="anonymous"></script>
+		
+		<script src="../javascripts/utils.js"></script>
+		<script src="../javascripts/login.js"></script>
+	</head>
+	
+	<body class="page">
+		<header>
+			<nav class="navbar navbar-default">
+			  <div class="container-fluid">
+			    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+			      	<ul class="nav navbar-nav">
+			        	<li>
+			        		<a href="/">Homepage<span class="sr-only">(current)</span></a>
+			        	</li>
+			        </ul>
+			        <ul class="nav navbar-nav navbar-right">
+				        <li class="active">
+				        	<a href="/login">Login</a>
+				        </li>
+				        <li>
+				        	<a href="/register">Register</a>
+				        </li>
+			      	</ul>
+			    </div><!-- /.navbar-collapse -->
+			  </div><!-- /.container-fluid -->
+			</nav>
+		</header>
+		<div style="margin: 5px 10px 5px 10px;">
+			<span style="float: right; margin-left: 5px; padding-top: 2px;" class="glyphicon glyphicon-question-sign"></span>
+			<a style="float: right;" target="_blank" href="/help#page=5">Help</a>
+			<div style="clear: both;"></div>
+		</div>
+		<div id="Login" class="container">
+			<form action="login" method="POST" class="form-signin">
+				<h2 class="form-signin-heading" align="center">Please Login</h2>
+				<div class="messages">
+					<span id="LoginFail" style="display: none;">Incorrect username or password. Please try again.</span>
+					<span id="NewUser" style="display: none;">User registered successfully. Please log in.</span>
+				</div>
+				<br>
+				<label for="inputUser" class="sr-only">Username</label>
+				<input name="username" type="text" id="inputUser" class="form-control" placeholder="Username" required autofocus>
+				<br>
+				<label for="inputPassword" class="sr-only">Password</label>
+				<input name="password" type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+				<br>
+				<button id="SignIn" class="btn btn-lg col-sm-6 btn-primary" type="submit">Login</button>
+				<a id="Register" href="register">
+					<button class="btn btn-lg col-sm-6 btn-success" type="button">Register</button>
+				</a>
+			</form>
+		</div>
+	</body>
+</html>

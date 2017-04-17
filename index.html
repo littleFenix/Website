@@ -1,1 +1,63 @@
-Hello World
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Homepage</title>
+		<link rel="stylesheet" href="stylesheets/site.css">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+		<link href='https://fonts.googleapis.com/css?family=Oxygen:400,300,700' rel='stylesheet' type='text/css'>
+
+		<script src="https://code.jquery.com/jquery-2.2.0.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" crossorigin="anonymous"></script>
+		<script src="index.js"></script>
+	</head>
+	<body>
+		<header>
+			<nav class="navbar navbar-default">
+			  <div class="container-fluid">
+			    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+			      	<ul class="nav navbar-nav">
+			        	<li class="active">
+			        		<a href="/">Homepage<span class="sr-only">(current)</span></a>
+			        	</li>
+			        </ul>
+			        <ul id="user-inactive" class="nav navbar-nav navbar-right">
+				        <li>
+				        	<a href="/login">Login</a>
+				        </li>
+				        <li class="active">
+				        	<a href="/register">Register</a>
+				        </li>
+			      	</ul>
+					<ul id="user-active" class="nav navbar-nav navbar-right">
+				        <li>
+				        	<a href="/activities/create">Activity Create</a>
+				        </li>
+				        <li class="active">
+				        	<a href="/activities/view">Activity View</a>
+				        </li>
+				        <li>
+				        	<a href="/logout">Log out</a>
+				        </li>
+			      	</ul>
+			    </div><!-- /.navbar-collapse -->
+			  </div><!-- /.container-fluid -->
+			</nav>
+			<div style="margin: 5px 10px 5px 10px;">
+				<span style="float: right; margin-left: 5px; padding-top: 2px;" class="glyphicon glyphicon-question-sign"></span>
+				<a style="float: right;" target="_blank" href="/help#page=2">Help</a>
+				<div style="clear: both;"></div>
+			</div>
+			<div class ="container">
+				<div class="jumbotron">
+				  <h1 class="display-3" align="center">Health &#38; Fitness Tracker
+				  </h1>
+				  <hr class="m-y-2">
+				  <p>With Health &#38; Fitness Tracker, you can keep track of all your daily activities with a user friendly system. Register an account today!</p>
+				  <p class="lead">
+				    <a class="btn btn-primary btn-lg" href="/register" role="button">Register Now</a>
+				  </p>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

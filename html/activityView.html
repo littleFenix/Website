@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Activity View</title>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+		<link rel="stylesheet" href="../stylesheets/site.css">
+		<link rel="stylesheet" href="../stylesheets/activityView.css">
+		
+		<script src="https://code.jquery.com/jquery-2.2.0.js"></script>
+		<script src = "https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" crossorigin="anonymous"></script>	
+		<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+		
+		<script src="../javascripts/base.js"></script>
+		<script src="../javascripts/utils.js"></script>
+		<script src="../javascripts/activityView.js"></script>
+	</head>
+	<body>
+		<header>
+			<nav class="navbar navbar-default">
+			  <div class="container-fluid">
+			    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+			      	<ul class="nav navbar-nav">
+			        	<li>
+			        		<a href="/">Homepage<span class="sr-only">(current)</span></a>
+			        	</li>
+			        </ul>
+			        <ul class="nav navbar-nav navbar-right">
+				        <li>
+				        	<a href="/activities/create">Activity Create</a>
+				        </li>
+				        <li class="active">
+				        	<a href="/activities/view">Activity View</a>
+				        </li>
+				        <li>
+				        	<a href="/logout">Log out</a>
+				        </li>
+			      	</ul>
+			    </div>
+			  </div>
+			</nav>
+		</header>
+		<div style="margin: 5px 10px 5px 10px;">
+			<span style="float: right; margin-left: 5px; padding-top: 2px;" class="glyphicon glyphicon-question-sign"></span>
+			<a style="float: right;" target="_blank" href="/help#page=8">Help</a>
+			<div style="clear: both;"></div>
+		</div>
+		<div class="activityViewContainer">
+			<div class="centerContent">
+				<label>Date Range: </label>
+				<input id="StartDate" type="date" placeholder="Start Date" />
+				<input id="EndDate" type="date" placeholder="End Date" />
+				<button class="btn btn-sm btn-primary" onclick="loadChartData()"><span class="glyphicon glyphicon-refresh"></span></button>
+			</div>
+			<div class="centerContent">
+				<label>Single Date: </label>
+				<input id="QueryDate" type="date" placeholder="Date"/>
+				<button class="btn btn-sm btn-primary" onclick="fetchSingleDate()"><span class="glyphicon glyphicon-refresh"></span></button>
+			</div>
+			<div class="centerContent">
+				<button class="btn btn-sm btn-primary" onclick="fetchAllDates()">Show All</span></button>				
+			</div>
+		</div>
+		<div class="activityViewContainer">
+			<div id="MissingDates">
+				<span>Missing Activities</span>
+				<hr />
+				<div class="buttonsContainer">
+				</div>
+			</div>
+			<div id="StepsChart"></div>
+			<div id="HeartrateChart"></div>
+		</div>
+		<div id="ActivityEdit">
+			<form method="POST" action="javascript:saveActivity();">
+				<div class="messages">
+					<div id="EditFail" class="alert alert-danger" role="alert">
+						<span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+						The activity could not be saved. Try again in a little while.
+					</div>
+				</div>
+			
+				<input type="hidden" id="ActivityId" />
+				<span id="ActivityDate"></span>
+				<span id="ActivityDelete" class="glyphicon glyphicon-trash" aria-hidden="true" style="float: right;"></span>
+				<div id="DeleteConfirmDialog" title="Confirm Delete" style="display: inline-block; float: right;">
+					Are you sure you want to delete this Activity?
+					<button class="btn btn-sm btn-danger" onclick="deleteActivity()" type="button">Yes, delete it!</button>
+					<button class="btn btn-sm" onclick="cancelDeleteActivity()" type="button">Cancel</button>
+				</div>
+				<hr />
+				<label for="ActivityMinHeartRate">Minimum Heart Rate</label>
+				<input type="number" required id="ActivityMinHeartRate" min="30" max="215" class="form-control" placeholder="Enter Minimum Heart Rate" required>
+				<br>
+				<label for="ActivityMaxHeartRate">Maximum Heart Rate</label>
+				<input type="number" required id="ActivityMaxHeartRate" min="30" max="215" class="form-control" placeholder="Enter Maximum Heart Rate" required>
+				<br>
+				<label for="ActivityAvgHeartRate">Average Heart Rate</label>
+				<input type="number" required id="ActivityAvgHeartRate" min="30" max="215" class="form-control" placeholder="Enter Average Heart Rate" required>
+				<br>
+				<label for="ActivitySteps">Steps</label>
+				<input type="number" required id="ActivitySteps" min="0" max="100000" class="form-control" placeholder="Enter Steps" required>
+				<br>
+				<button onclick="hideEditView()" class="btn btn-lg btn-default" type="button">Cancel</button>
+				<button id="ActivitySave" class="btn btn-lg btn-primary" type="submit">Save</button>
+			</form>
+		</div>
+		<div id="ActivityCreate">
+			<form method="POST" action="javascript:createActivity();">
+				<div class="messages">
+					<div id="CreationFail" class="alert alert-danger" role="alert">
+						<span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+						The activity could not be created. Try again in a little while.
+					</div>
+				</div>
+
+				<input type="hidden" id="CreateDate" />
+				<span id="CreateDateText"></span>
+				<hr />
+				<label for="CreateMinHeartRate">Minimum Heart Rate</label>
+				<input type="number" required id="CreateMinHeartRate" min="30" max="215" class="form-control" placeholder="Enter Minimum Heart Rate" required>
+				<br>
+				<label for="CreateMaxHeartRate">Maximum Heart Rate</label>
+				<input type="number" required id="CreateMaxHeartRate" min="30" max="215" class="form-control" placeholder="Enter Maximum Heart Rate" required>
+				<br>
+				<label for="CreateAvgHeartRate">Average Heart Rate</label>
+				<input type="number" required id="CreateAvgHeartRate" min="30" max="215" class="form-control" placeholder="Enter Average Heart Rate" required>
+				<br>
+				<label for="CreateSteps">Steps</label>
+				<input type="number" required id="CreateSteps" min="0" max="100000" class="form-control" placeholder="Enter Steps" required>
+				<br>
+				<button onclick="hideCreateView()" class="btn btn-lg btn-default" type="button">Cancel</button>
+				<button id="CreateSave" class="btn btn-lg btn-primary" type="submit">Save</button>
+			</form>
+		</div>
+	</body>
+</html>

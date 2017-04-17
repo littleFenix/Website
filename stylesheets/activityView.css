@@ -1,0 +1,48 @@
+#ActivityEdit,
+#ActivityCreate {
+	display: none;
+	width: 75%;
+	margin: 10px auto 10px auto;
+	border: 1px solid gray;
+	border-radius: 5px;
+	padding: 10px;
+}
+
+.activityViewContainer {
+	margin: 10px;
+}
+
+#ActivityDate,
+#CreateDateText {
+	font-size: 16px;
+	font-weight: bold;
+}
+
+hr {
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+
+#ActivityDelete {
+	margin-left: 10px;
+}
+
+#ActivityDelete:hover {
+	cursor: pointer;
+	color: gray;
+}
+
+#MissingDates {
+	display: none;
+	margin: 0 40px 0 40px;
+}
+
+.centerContent {
+	text-align: center;
+}
+
+.btn-missing-date {
+	padding: 5px 10px 5px 10px;
+	border-radius: 20px;
+	margin: 0 5px 0 5px;
+}
